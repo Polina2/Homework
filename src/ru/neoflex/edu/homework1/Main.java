@@ -4,6 +4,7 @@ import ru.neoflex.edu.homework1.adapter.Computer;
 import ru.neoflex.edu.homework1.adapter.IUSBDevice;
 import ru.neoflex.edu.homework1.adapter.MemoryCard;
 import ru.neoflex.edu.homework1.adapter.USBAdapter;
+import ru.neoflex.edu.homework1.factory.Coffee;
 import ru.neoflex.edu.homework1.factory.CoffeeMachine;
 import ru.neoflex.edu.homework1.factory.CoffeeType;
 import ru.neoflex.edu.homework1.proxy.DatabaseConnectorProxy;
@@ -22,7 +23,8 @@ public class Main {
 
         //factory
         CoffeeMachine coffeeMachine = new CoffeeMachine();
-        coffeeMachine.makeCoffee(CoffeeType.AMERICANO);
+        Coffee coffee = coffeeMachine.makeCoffee(CoffeeType.AMERICANO);
+        System.out.println(coffee.toString());
 
         //adapter
         Computer computer = new Computer();

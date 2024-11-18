@@ -6,11 +6,12 @@ public class CoffeeMachine {
 
     private final CoffeeFactory coffeeFactory = new CoffeeFactory();
 
-    public void makeCoffee(CoffeeType coffeeType) {
+    public Coffee makeCoffee(CoffeeType coffeeType) {
         Coffee coffee = coffeeFactory.getCoffee(coffeeType);
         takeIngredients(coffee.getIngredients());
         mixIngredients(coffee.getIngredients());
         System.out.println("your coffee is ready");
+        return coffee;
     }
 
     private void takeIngredients(List<String> ingredients) {
