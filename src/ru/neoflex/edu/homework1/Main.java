@@ -1,5 +1,9 @@
 package ru.neoflex.edu.homework1;
 
+import ru.neoflex.edu.homework1.adapter.Computer;
+import ru.neoflex.edu.homework1.adapter.IUSBDevice;
+import ru.neoflex.edu.homework1.adapter.MemoryCard;
+import ru.neoflex.edu.homework1.adapter.USBAdapter;
 import ru.neoflex.edu.homework1.factory.CoffeeMachine;
 import ru.neoflex.edu.homework1.factory.CoffeeType;
 import ru.neoflex.edu.homework1.singleton.LoggerSingleton;
@@ -17,5 +21,11 @@ public class Main {
         //factory
         CoffeeMachine coffeeMachine = new CoffeeMachine();
         coffeeMachine.makeCoffee(CoffeeType.AMERICANO);
+
+        //adapter
+        Computer computer = new Computer();
+        MemoryCard memoryCard = new MemoryCard();
+        IUSBDevice usbDevice = new USBAdapter(memoryCard);
+        computer.readFromUsbDevice(usbDevice);
     }
 }
