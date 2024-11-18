@@ -6,6 +6,8 @@ import ru.neoflex.edu.homework1.adapter.MemoryCard;
 import ru.neoflex.edu.homework1.adapter.USBAdapter;
 import ru.neoflex.edu.homework1.factory.CoffeeMachine;
 import ru.neoflex.edu.homework1.factory.CoffeeType;
+import ru.neoflex.edu.homework1.proxy.DatabaseConnectorProxy;
+import ru.neoflex.edu.homework1.proxy.IDatabaseConnector;
 import ru.neoflex.edu.homework1.singleton.LoggerSingleton;
 import ru.neoflex.edu.homework1.singleton.SomeClass;
 
@@ -27,5 +29,10 @@ public class Main {
         MemoryCard memoryCard = new MemoryCard();
         IUSBDevice usbDevice = new USBAdapter(memoryCard);
         computer.readFromUsbDevice(usbDevice);
+
+        //proxy
+        IDatabaseConnector databaseConnector = new DatabaseConnectorProxy("localhost", 5432, "some_db");
+        databaseConnector.connect();
+        databaseConnector.connect();
     }
 }
